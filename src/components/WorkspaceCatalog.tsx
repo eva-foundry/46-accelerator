@@ -1,30 +1,154 @@
 import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Calendar, Lock, Sparkle, Translate, FileText, Flask, CheckCircle } from '@phosphor-icons/react'
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  Button,
+  Badge,
+  Text,
+  Title3,
+  Caption1,
+  tokens,
+  makeStyles,
+  shorthands,
+} from '@fluentui/react-components'
+import {
+  CalendarRegular,
+  LockClosedRegular,
+  SparkleRegular,
+  TranslateRegular,
+  DocumentTextRegular,
+  BeakerRegular,
+  CheckmarkCircleRegular,
+} from '@fluentui/react-icons'
 import { WORKSPACES, WORKSPACE_TYPE_LABELS } from '@/lib/constants'
 import type { Workspace } from '@/lib/types'
 import BookingDialog from './BookingDialog'
 
+const useStyles = makeStyles({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('24px'),
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('4px'),
+  },
+  title: {
+    fontSize: '24px',
+    fontWeight: 700,
+    color: tokens.colorNeutralForeground1,
+  },
+  subtitle: {
+    color: tokens.colorNeutralForeground3,
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    ...shorthands.gap('24px'),
+  },
+  card: {
+    ...shorthands.transition('box-shadow', '200ms', 'ease'),
+    ':hover': {
+      boxShadow: tokens.shadow16,
+    },
+  },
+  cardHeaderContent: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    ...shorthands.gap('12px'),
+  },
+  cardHeaderLeft: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('8px'),
+  },
+  iconBadgeRow: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+  },
+  description: {
+    marginTop: '8px',
+    color: tokens.colorNeutralForeground3,
+    fontSize: '14px',
+  },
+  features: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('16px'),
+    ...shorthands.padding('16px', '0'),
+  },
+  featuresLabel: {
+    fontSize: '12px',
+    fontWeight: 600,
+    color: tokens.colorNeutralForeground3,
+  },
+  featuresList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    ...shorthands.gap('6px'),
+  },
+  feature: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('4px'),
+    fontSize: '12px',
+    backgroundColor: tokens.colorNeutralBackground3,
+    ...shorthands.padding('4px', '8px'),
+    ...shorthands.borderRadius(tokens.borderRadiusMedium),
+  },
+  capacity: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    ...shorthands.padding('12px', '0', '0'),
+    ...shorthands.borderTop('1px', 'solid', tokens.colorNeutralStroke2),
+  },
+  capacityItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('4px'),
+  },
+  capacityLabel: {
+    fontSize: '12px',
+    color: tokens.colorNeutralForeground3,
+  },
+  capacityValue: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: tokens.colorNeutralForeground1,
+  },
+  priceValue: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: tokens.colorBrandForeground1,
+  },
+})
+
 const getWorkspaceIcon = (type: string) => {
   switch (type) {
     case 'protected-b':
-      return <Lock size={24} weight="duotone" className="text-primary" />
+      return <LockClosedRegular fontSize={24} />
     case 'ocr-enabled':
-      return <FileText size={24} weight="duotone" className="text-teal" />
+      return <DocumentTextRegular fontSize={24} />
     case 'translation':
-      return <Translate size={24} weight="duotone" className="text-accent" />
+      return <TranslateRegular fontSize={24} />
     case 'summarization':
-      return <Sparkle size={24} weight="duotone" className="text-secondary" />
+      return <SparkleRegular fontSize={24} />
     default:
-      return <Flask size={24} weight="duotone" className="text-muted-foreground" />
+      return <BeakerRegular fontSize={24} />
   }
 }
 
 export default function WorkspaceCatalog() {
   const [selectedWorkspace, setSelectedWorkspace] = useState<Workspace | null>(null)
   const [bookingDialogOpen, setBookingDialogOpen] = useState(false)
+  const styles = useStyles()
 
   const handleBookWorkspace = (workspace: Workspace) => {
     setSelectedWorkspace(workspace)
@@ -32,61 +156,60 @@ export default function WorkspaceCatalog() {
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground tracking-tight">Available Workspaces</h2>
-        <p className="text-muted-foreground mt-1">Select a workspace environment that matches your AI exploration needs</p>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Available Workspaces</h2>
+        <Text className={styles.subtitle}>Select a workspace environment that matches your AI exploration needs</Text>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className={styles.grid}>
         {WORKSPACES.map((workspace) => (
-          <Card key={workspace.id} className="hover:shadow-lg transition-shadow duration-200">
+          <Card key={workspace.id} className={styles.card}>
             <CardHeader>
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+              <div className={styles.cardHeaderContent}>
+                <div className={styles.cardHeaderLeft}>
+                  <div className={styles.iconBadgeRow}>
                     {getWorkspaceIcon(workspace.type)}
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge appearance="filled" size="small">
                       {WORKSPACE_TYPE_LABELS[workspace.type]}
                     </Badge>
                   </div>
-                  <CardTitle className="text-lg">{workspace.name}</CardTitle>
+                  <Title3>{workspace.name}</Title3>
                 </div>
               </div>
-              <CardDescription className="text-sm mt-2">{workspace.description}</CardDescription>
+              <Text className={styles.description}>{workspace.description}</Text>
             </CardHeader>
 
-            <CardContent className="space-y-4">
-              <div>
-                <p className="text-xs font-medium text-muted-foreground mb-2">Key Features</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {workspace.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-1 text-xs text-foreground bg-muted px-2 py-1 rounded">
-                      <CheckCircle size={12} weight="fill" className="text-primary" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
+            <div className={styles.features}>
+              <Caption1 className={styles.featuresLabel}>KEY FEATURES</Caption1>
+              <div className={styles.featuresList}>
+                {workspace.features.map((feature, idx) => (
+                  <div key={idx} className={styles.feature}>
+                    <CheckmarkCircleRegular fontSize={12} />
+                    {feature}
+                  </div>
+                ))}
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-border">
-                <div>
-                  <p className="text-xs text-muted-foreground">Capacity</p>
-                  <p className="text-sm font-semibold text-foreground">{workspace.capacity} users</p>
+              <div className={styles.capacity}>
+                <div className={styles.capacityItem}>
+                  <Caption1 className={styles.capacityLabel}>Capacity</Caption1>
+                  <Text className={styles.capacityValue}>{workspace.capacity} users</Text>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs text-muted-foreground">Price</p>
-                  <p className="text-sm font-semibold text-foreground">${workspace.pricePerWeek}/week</p>
+                <div className={styles.capacityItem}>
+                  <Caption1 className={styles.capacityLabel}>Price</Caption1>
+                  <Text className={styles.priceValue}>${workspace.pricePerWeek}/week</Text>
                 </div>
               </div>
-            </CardContent>
+            </div>
 
             <CardFooter>
-              <Button 
-                className="w-full gap-2" 
+              <Button
+                appearance="primary"
+                style={{ width: '100%' }}
+                icon={<CalendarRegular />}
                 onClick={() => handleBookWorkspace(workspace)}
               >
-                <Calendar size={18} />
                 Book This Workspace
               </Button>
             </CardFooter>

@@ -1,104 +1,195 @@
 import { useState } from 'react'
+import {
+  FluentProvider,
+  webLightTheme,
+  Button,
+  tokens,
+  makeStyles,
+  shorthands,
+} from '@fluentui/react-components'
+import {
+  CalendarRegular,
+  BuildingRegular,
+  ChartMultipleRegular,
+} from '@fluentui/react-icons'
 import { Toaster } from '@/components/ui/sonner'
-import { Button } from '@/components/ui/button'
-import { Calendar, Buildings, Users, ClipboardText, ChartBar } from '@phosphor-icons/react'
 import WorkspaceCatalog from '@/components/WorkspaceCatalog'
 import MyBookings from '@/components/MyBookings'
 import AdminDashboard from '@/components/AdminDashboard'
 
 type View = 'catalog' | 'bookings' | 'admin'
 
+const useStyles = makeStyles({
+  root: {
+    minHeight: '100vh',
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
+  header: {
+    ...shorthands.borderBottom('1px', 'solid', tokens.colorNeutralStroke2),
+    backgroundColor: tokens.colorNeutralBackground2,
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
+  },
+  headerContainer: {
+    maxWidth: '1280px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    ...shorthands.padding('16px', '24px'),
+  },
+  headerTop: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  brand: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('12px'),
+  },
+  logo: {
+    width: '40px',
+    height: '40px',
+    ...shorthands.borderRadius('8px'),
+    backgroundColor: tokens.colorBrandBackground,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: tokens.colorNeutralForegroundInverted,
+  },
+  brandText: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  title: {
+    fontSize: '18px',
+    fontWeight: 700,
+    lineHeight: '24px',
+    color: tokens.colorNeutralForeground1,
+  },
+  subtitle: {
+    fontSize: '12px',
+    color: tokens.colorNeutralForeground3,
+  },
+  nav: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  mobileNav: {
+    display: 'none',
+    '@media (max-width: 768px)': {
+      display: 'flex',
+      alignItems: 'center',
+      ...shorthands.gap('8px'),
+      marginTop: '16px',
+    },
+  },
+  mobileNavButton: {
+    flex: 1,
+  },
+  main: {
+    maxWidth: '1280px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    ...shorthands.padding('32px', '24px'),
+  },
+})
+
 function App() {
   const [currentView, setCurrentView] = useState<View>('catalog')
   const [isAdmin] = useState(true)
+  const styles = useStyles()
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <Buildings size={24} weight="duotone" className="text-primary-foreground" />
+    <FluentProvider theme={webLightTheme}>
+      <div className={styles.root}>
+        <header className={styles.header}>
+          <div className={styles.headerContainer}>
+            <div className={styles.headerTop}>
+              <div className={styles.brand}>
+                <div className={styles.logo}>
+                  <BuildingRegular fontSize={24} />
+                </div>
+                <div className={styles.brandText}>
+                  <h1 className={styles.title}>EVA Domain Assistant</h1>
+                  <p className={styles.subtitle}>Workspace Booking Portal</p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-lg font-bold text-foreground tracking-tight">EVA Domain Assistant</h1>
-                <p className="text-xs text-muted-foreground">Workspace Booking Portal</p>
-              </div>
+
+              <nav className={styles.nav}>
+                <Button
+                  appearance={currentView === 'catalog' ? 'primary' : 'subtle'}
+                  onClick={() => setCurrentView('catalog')}
+                  icon={<BuildingRegular />}
+                >
+                  Browse Workspaces
+                </Button>
+                <Button
+                  appearance={currentView === 'bookings' ? 'primary' : 'subtle'}
+                  onClick={() => setCurrentView('bookings')}
+                  icon={<CalendarRegular />}
+                >
+                  My Bookings
+                </Button>
+                {isAdmin && (
+                  <Button
+                    appearance={currentView === 'admin' ? 'primary' : 'subtle'}
+                    onClick={() => setCurrentView('admin')}
+                    icon={<ChartMultipleRegular />}
+                  >
+                    Admin
+                  </Button>
+                )}
+              </nav>
             </div>
-            
-            <nav className="hidden md:flex items-center gap-2">
+
+            <nav className={styles.mobileNav}>
               <Button
-                variant={currentView === 'catalog' ? 'default' : 'ghost'}
+                appearance={currentView === 'catalog' ? 'primary' : 'outline'}
                 onClick={() => setCurrentView('catalog')}
-                className="gap-2"
+                icon={<BuildingRegular />}
+                size="small"
+                className={styles.mobileNavButton}
               >
-                <Buildings size={18} />
-                Browse Workspaces
+                Workspaces
               </Button>
               <Button
-                variant={currentView === 'bookings' ? 'default' : 'ghost'}
+                appearance={currentView === 'bookings' ? 'primary' : 'outline'}
                 onClick={() => setCurrentView('bookings')}
-                className="gap-2"
+                icon={<CalendarRegular />}
+                size="small"
+                className={styles.mobileNavButton}
               >
-                <Calendar size={18} />
-                My Bookings
+                Bookings
               </Button>
               {isAdmin && (
                 <Button
-                  variant={currentView === 'admin' ? 'default' : 'ghost'}
+                  appearance={currentView === 'admin' ? 'primary' : 'outline'}
                   onClick={() => setCurrentView('admin')}
-                  className="gap-2"
+                  icon={<ChartMultipleRegular />}
+                  size="small"
+                  className={styles.mobileNavButton}
                 >
-                  <ChartBar size={18} />
                   Admin
                 </Button>
               )}
             </nav>
           </div>
-          
-          <nav className="md:hidden flex items-center gap-2 mt-4">
-            <Button
-              variant={currentView === 'catalog' ? 'default' : 'outline'}
-              onClick={() => setCurrentView('catalog')}
-              size="sm"
-              className="flex-1 gap-1.5"
-            >
-              <Buildings size={16} />
-              <span className="text-xs">Workspaces</span>
-            </Button>
-            <Button
-              variant={currentView === 'bookings' ? 'default' : 'outline'}
-              onClick={() => setCurrentView('bookings')}
-              size="sm"
-              className="flex-1 gap-1.5"
-            >
-              <Calendar size={16} />
-              <span className="text-xs">Bookings</span>
-            </Button>
-            {isAdmin && (
-              <Button
-                variant={currentView === 'admin' ? 'default' : 'outline'}
-                onClick={() => setCurrentView('admin')}
-                size="sm"
-                className="flex-1 gap-1.5"
-              >
-                <ChartBar size={16} />
-                <span className="text-xs">Admin</span>
-              </Button>
-            )}
-          </nav>
-        </div>
-      </header>
+        </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        {currentView === 'catalog' && <WorkspaceCatalog />}
-        {currentView === 'bookings' && <MyBookings />}
-        {currentView === 'admin' && <AdminDashboard />}
-      </main>
+        <main className={styles.main}>
+          {currentView === 'catalog' && <WorkspaceCatalog />}
+          {currentView === 'bookings' && <MyBookings />}
+          {currentView === 'admin' && <AdminDashboard />}
+        </main>
 
-      <Toaster />
-    </div>
+        <Toaster />
+      </div>
+    </FluentProvider>
   )
 }
 
