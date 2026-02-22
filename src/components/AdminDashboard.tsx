@@ -1,15 +1,110 @@
-import { useKV } from '@github/spark/hooks'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Buildings, Calendar, Users, CurrencyDollar, ChartBar, TrendUp } from '@phosphor-icons/react'
+import { useLocalStorageState } from '@/hooks/use-local-storage-state'
+import {
+  Badge,
+  Card,
+  CardHeader,
+  ProgressBar,
+  Table,
+  TableBody,
+  TableCell,
+  TableCellLayout,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  Title3,
+  makeStyles,
+  shorthands,
+  tokens,
+} from '@fluentui/react-components'
+import {
+  BuildingRegular,
+  CalendarRegular,
+  ChartMultipleRegular,
+  MoneyRegular,
+  ArrowTrendingRegular,
+} from '@fluentui/react-icons'
 import type { Booking, EntrySurvey, ExitSurvey } from '@/lib/types'
 import { WORKSPACES } from '@/lib/constants'
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('24px'),
+  },
+  heading: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('4px'),
+  },
+  subtitle: {
+    color: tokens.colorNeutralForeground3,
+  },
+  statGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    ...shorthands.gap('12px'),
+  },
+  statTop: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: tokens.colorNeutralForeground3,
+  },
+  statLabel: {
+    fontSize: '13px',
+    color: tokens.colorNeutralForeground3,
+  },
+  statValue: {
+    fontSize: '30px',
+    fontWeight: 700,
+    lineHeight: '36px',
+  },
+  statHint: {
+    fontSize: '12px',
+    color: tokens.colorNeutralForeground3,
+  },
+  cardBody: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('12px'),
+  },
+  utilizationRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('6px'),
+  },
+  utilizationTop: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+  },
+  workspaceInfo: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+  },
+  tableWrap: {
+    overflowX: 'auto',
+  },
+  right: {
+    textAlign: 'right',
+  },
+  empty: {
+    textAlign: 'center',
+    ...shorthands.padding('24px', '0'),
+    color: tokens.colorNeutralForeground3,
+    fontSize: '13px',
+  },
+})
+
 export default function AdminDashboard() {
-  const [bookings] = useKV<Booking[]>('bookings', [])
-  const [entrySurveys] = useKV<EntrySurvey[]>('entry-surveys', [])
-  const [exitSurveys] = useKV<ExitSurvey[]>('exit-surveys', [])
+  const [bookings] = useLocalStorageState<Booking[]>('bookings', [])
+  const [entrySurveys] = useLocalStorageState<EntrySurvey[]>('entry-surveys', [])
+  const [exitSurveys] = useLocalStorageState<ExitSurvey[]>('exit-surveys', [])
+  const styles = useStyles()
 
   const allBookings = bookings || []
   const activeBookings = allBookings.filter(b => b.status === 'active')
@@ -18,6 +113,7 @@ export default function AdminDashboard() {
   const completionRate = allBookings.length > 0 
     ? Math.round((completedBookings.length / allBookings.length) * 100) 
     : 0
+  const entrySurveyCount = (entrySurveys || []).length
 
   const getWorkspaceName = (workspaceId: string) => {
     return WORKSPACES.find(w => w.id === workspaceId)?.name || 'Unknown'
@@ -44,143 +140,132 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground tracking-tight">Admin Dashboard</h2>
-        <p className="text-muted-foreground mt-1">Monitor workspace utilization and system metrics</p>
+    <div className={styles.root}>
+      <div className={styles.heading}>
+        <Title3>Admin Dashboard</Title3>
+        <Text className={styles.subtitle}>Monitor workspace utilization and system metrics</Text>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className={styles.statGrid}>
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Bookings</CardTitle>
-            <Calendar size={20} className="text-muted-foreground" />
+          <CardHeader className={styles.statTop}>
+            <Text className={styles.statLabel}>Total Bookings</Text>
+            <CalendarRegular fontSize={20} />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-foreground">{allBookings.length}</div>
-            <div className="flex items-center gap-1 mt-1">
-              <Badge variant="secondary" className="text-xs">
+          <div className={styles.cardBody}>
+            <Text className={styles.statValue}>{allBookings.length}</Text>
+            <div>
+              <Badge appearance="tint" size="small">
                 {activeBookings.length} active
               </Badge>
             </div>
-          </CardContent>
+          </div>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Revenue</CardTitle>
-            <CurrencyDollar size={20} className="text-muted-foreground" />
+          <CardHeader className={styles.statTop}>
+            <Text className={styles.statLabel}>Total Revenue</Text>
+            <MoneyRegular fontSize={20} />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-accent">${totalRevenue}</div>
-            <p className="text-xs text-muted-foreground mt-1">Cost recovery tracked</p>
-          </CardContent>
+          <div className={styles.cardBody}>
+            <Text className={styles.statValue}>${totalRevenue}</Text>
+            <Text className={styles.statHint}>Cost recovery tracked</Text>
+          </div>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Completion Rate</CardTitle>
-            <ChartBar size={20} className="text-muted-foreground" />
+          <CardHeader className={styles.statTop}>
+            <Text className={styles.statLabel}>Completion Rate</Text>
+            <ChartMultipleRegular fontSize={20} />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-foreground">{completionRate}%</div>
-            <p className="text-xs text-muted-foreground mt-1">{completedBookings.length} completed</p>
-          </CardContent>
+          <div className={styles.cardBody}>
+            <Text className={styles.statValue}>{completionRate}%</Text>
+            <Text className={styles.statHint}>{completedBookings.length} completed</Text>
+          </div>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Avg Satisfaction</CardTitle>
-            <TrendUp size={20} className="text-muted-foreground" />
+          <CardHeader className={styles.statTop}>
+            <Text className={styles.statLabel}>Avg Satisfaction</Text>
+            <ArrowTrendingRegular fontSize={20} />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-foreground">{getAverageSatisfaction()}</div>
-            <p className="text-xs text-muted-foreground mt-1">Out of 5.0</p>
-          </CardContent>
+          <div className={styles.cardBody}>
+            <Text className={styles.statValue}>{getAverageSatisfaction()}</Text>
+            <Text className={styles.statHint}>Out of 5.0 ({entrySurveyCount} entry surveys)</Text>
+          </div>
         </Card>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Buildings size={20} />
-            Workspace Utilization
-          </CardTitle>
+          <Text weight="semibold">
+            <BuildingRegular fontSize={18} /> Workspace Utilization
+          </Text>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
+        <div className={styles.cardBody}>
             {getWorkspaceUtilization().map((workspace) => (
-              <div key={workspace.id} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium text-foreground">{workspace.name}</p>
-                    <Badge variant="outline" className="text-xs">
+              <div key={workspace.id} className={styles.utilizationRow}>
+                <div className={styles.utilizationTop}>
+                  <div className={styles.workspaceInfo}>
+                    <Text>{workspace.name}</Text>
+                    <Badge appearance="outline" size="small">
                       {workspace.activeBookings}/{workspace.capacity}
                     </Badge>
                   </div>
-                  <span className="text-sm font-semibold text-foreground">{workspace.utilization}%</span>
+                  <Text weight="semibold">{workspace.utilization}%</Text>
                 </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${workspace.utilization}%` }}
-                  />
-                </div>
+                <ProgressBar value={Math.min(workspace.utilization, 100) / 100} />
               </div>
             ))}
-          </div>
-        </CardContent>
+        </div>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Calendar size={20} />
-            Recent Bookings
-          </CardTitle>
+          <Text weight="semibold">
+            <CalendarRegular fontSize={18} /> Recent Bookings
+          </Text>
         </CardHeader>
-        <CardContent>
+        <div className={styles.cardBody}>
           {allBookings.length === 0 ? (
-            <p className="text-center py-8 text-muted-foreground text-sm">No bookings yet</p>
+            <Text className={styles.empty}>No bookings yet</Text>
           ) : (
-            <div className="overflow-x-auto">
+            <div className={styles.tableWrap}>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>User</TableHead>
-                    <TableHead>Workspace</TableHead>
-                    <TableHead>Period</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Cost</TableHead>
+                    <TableHeaderCell>User</TableHeaderCell>
+                    <TableHeaderCell>Workspace</TableHeaderCell>
+                    <TableHeaderCell>Period</TableHeaderCell>
+                    <TableHeaderCell>Status</TableHeaderCell>
+                    <TableHeaderCell className={styles.right}>Cost</TableHeaderCell>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {allBookings.slice(-10).reverse().map((booking) => (
                     <TableRow key={booking.id}>
-                      <TableCell className="font-medium">{booking.userName}</TableCell>
+                      <TableCell>
+                        <TableCellLayout>{booking.userName}</TableCellLayout>
+                      </TableCell>
                       <TableCell>{getWorkspaceName(booking.workspaceId)}</TableCell>
-                      <TableCell className="text-sm text-muted-foreground">
+                      <TableCell>
                         {new Date(booking.startDate).toLocaleDateString()} - {new Date(booking.endDate).toLocaleDateString()}
                       </TableCell>
                       <TableCell>
                         <Badge
-                          variant={
-                            booking.status === 'active' ? 'default' :
-                            booking.status === 'completed' ? 'secondary' :
-                            'outline'
-                          }
+                          appearance={booking.status === 'active' ? 'filled' : booking.status === 'completed' ? 'tint' : 'outline'}
                         >
                           {booking.status}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-right font-semibold">${booking.totalCost}</TableCell>
+                      <TableCell className={styles.right}>${booking.totalCost}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </div>
           )}
-        </CardContent>
+        </div>
       </Card>
     </div>
   )

@@ -1,5 +1,13 @@
 # Planning Guide
 
+## Implementation Status (February 2026)
+
+- Active UI stack is Fluent UI React v9 with TypeScript + Vite.
+- Spark-specific integration has been removed from runtime and persistence layers.
+- Tailwind/shadcn scaffold artifacts were removed from the active app surface.
+- Data persistence currently uses browser localStorage via a shared hook.
+- Validation/completion feedback currently uses lightweight browser alerts.
+
 A comprehensive self-service reservation system for EVA Domain Assistant that enables business teams to book AI workspace environments, manage access, track usage, and recover costs through an intuitive Archibus-inspired booking portal.
 
 **Experience Qualities**:
@@ -114,7 +122,7 @@ Key animations:
   - **Calendar**: Custom component built on `react-day-picker` for availability visualization with color-coded booking states
   - **Card**: Workspace listings and booking summaries with hover states
   - **Dialog**: Entry/exit surveys, booking confirmation, role assignment modals
-  - **Form**: All survey inputs and booking forms with `react-hook-form` validation
+  - **Form**: All survey inputs and booking forms with required-field validation
   - **Table**: Administrative views for booking history and cost tracking
   - **Tabs**: Switch between workspace types, booking views, team management
   - **Badge**: Role indicators, workspace features, booking status

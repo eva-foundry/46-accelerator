@@ -12,7 +12,6 @@ import {
   BuildingRegular,
   ChartMultipleRegular,
 } from '@fluentui/react-icons'
-import { Toaster } from '@/components/ui/sonner'
 import WorkspaceCatalog from '@/components/WorkspaceCatalog'
 import MyBookings from '@/components/MyBookings'
 import AdminDashboard from '@/components/AdminDashboard'
@@ -186,8 +185,6 @@ function App() {
           {currentView === 'bookings' && <MyBookings />}
           {currentView === 'admin' && <AdminDashboard />}
         </main>
-
-        <Toaster />
       </div>
     </FluentProvider>
   )

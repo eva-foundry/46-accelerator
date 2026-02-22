@@ -1,20 +1,117 @@
 import { useState } from 'react'
-import { useKV } from '@github/spark/hooks'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Calendar, Users, Receipt, ClipboardText, XCircle } from '@phosphor-icons/react'
-import type { Booking, EntrySurvey } from '@/lib/types'
+import { useLocalStorageState } from '@/hooks/use-local-storage-state'
+import {
+  Badge,
+  Button,
+  Card,
+  CardHeader,
+  CardFooter,
+  Text,
+  Title3,
+  makeStyles,
+  shorthands,
+  tokens,
+} from '@fluentui/react-components'
+import {
+  CalendarRegular,
+  PeopleRegular,
+  ReceiptRegular,
+  ClipboardTaskRegular,
+} from '@fluentui/react-icons'
+import type { Booking } from '@/lib/types'
 import { WORKSPACES } from '@/lib/constants'
 import ExitSurveyDialog from './ExitSurveyDialog'
 import TeamManagementDialog from './TeamManagementDialog'
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('24px'),
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('4px'),
+  },
+  subtitle: {
+    color: tokens.colorNeutralForeground3,
+  },
+  emptyState: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...shorthands.padding('64px', '24px'),
+    ...shorthands.gap('12px'),
+  },
+  emptyIcon: {
+    width: '80px',
+    height: '80px',
+    ...shorthands.borderRadius('50%'),
+    backgroundColor: tokens.colorNeutralBackground3,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: tokens.colorNeutralForeground3,
+  },
+  cardContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('16px'),
+  },
+  cardTop: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    ...shorthands.gap('16px'),
+  },
+  cardTopLeft: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('6px'),
+    flex: 1,
+  },
+  titleRow: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+    flexWrap: 'wrap',
+  },
+  dates: {
+    color: tokens.colorNeutralForeground3,
+    fontSize: '13px',
+  },
+  costBlock: {
+    textAlign: 'right',
+  },
+  costLabel: {
+    fontSize: '12px',
+    color: tokens.colorNeutralForeground3,
+  },
+  costValue: {
+    color: tokens.colorBrandForeground1,
+    fontWeight: 700,
+    fontSize: '20px',
+  },
+  metaBadges: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    ...shorthands.gap('8px'),
+  },
+  actions: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    ...shorthands.gap('8px'),
+  },
+})
+
 export default function MyBookings() {
-  const [bookings] = useKV<Booking[]>('bookings', [])
-  const [surveys] = useKV<EntrySurvey[]>('entry-surveys', [])
+  const [bookings] = useLocalStorageState<Booking[]>('bookings', [])
   const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null)
   const [exitSurveyOpen, setExitSurveyOpen] = useState(false)
   const [teamManagementOpen, setTeamManagementOpen] = useState(false)
+  const styles = useStyles()
 
   const userBookings = (bookings || []).filter(b => b.userId === 'current-user')
 
@@ -25,15 +122,15 @@ export default function MyBookings() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'active':
-        return <Badge className="bg-teal text-teal-foreground">Active</Badge>
+        return <Badge appearance="filled" color="success">Active</Badge>
       case 'pending':
-        return <Badge variant="outline">Pending</Badge>
+        return <Badge appearance="outline">Pending</Badge>
       case 'completed':
-        return <Badge variant="secondary">Completed</Badge>
+        return <Badge appearance="tint">Completed</Badge>
       case 'cancelled':
-        return <Badge variant="destructive">Cancelled</Badge>
+        return <Badge appearance="filled" color="danger">Cancelled</Badge>
       default:
-        return <Badge variant="outline">{status}</Badge>
+        return <Badge appearance="outline">{status}</Badge>
     }
   }
 
@@ -49,26 +146,26 @@ export default function MyBookings() {
 
   if (userBookings.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 px-6">
-        <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-4">
-          <Calendar size={40} weight="duotone" className="text-muted-foreground" />
+      <div className={styles.emptyState}>
+        <div className={styles.emptyIcon}>
+          <CalendarRegular fontSize={40} />
         </div>
-        <h3 className="text-xl font-bold text-foreground mb-2">No Bookings Yet</h3>
-        <p className="text-muted-foreground text-center max-w-md">
+        <Title3>No Bookings Yet</Title3>
+        <Text align="center" className={styles.subtitle}>
           You haven't made any workspace reservations. Browse available workspaces to get started.
-        </p>
+        </Text>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground tracking-tight">My Bookings</h2>
-        <p className="text-muted-foreground mt-1">Manage your workspace reservations and team access</p>
+    <div className={styles.root}>
+      <div className={styles.header}>
+        <Title3>My Bookings</Title3>
+        <Text className={styles.subtitle}>Manage your workspace reservations and team access</Text>
       </div>
 
-      <div className="space-y-4">
+      <div className={styles.root}>
         {userBookings.map((booking) => {
           const workspace = getWorkspace(booking.workspaceId)
           if (!workspace) return null
@@ -76,59 +173,53 @@ export default function MyBookings() {
           return (
             <Card key={booking.id}>
               <CardHeader>
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <CardTitle className="text-lg">{workspace.name}</CardTitle>
+                <div className={styles.cardTop}>
+                  <div className={styles.cardTopLeft}>
+                    <div className={styles.titleRow}>
+                      <Text size={500} weight="semibold">{workspace.name}</Text>
                       {getStatusBadge(booking.status)}
                     </div>
-                    <CardDescription className="text-sm">
+                    <Text className={styles.dates}>
                       {new Date(booking.startDate).toLocaleDateString()} - {new Date(booking.endDate).toLocaleDateString()}
-                    </CardDescription>
+                    </Text>
                   </div>
-                  <div className="text-right">
-                    <p className="text-xs text-muted-foreground">Total Cost</p>
-                    <p className="text-lg font-bold text-accent">${booking.totalCost}</p>
+                  <div className={styles.costBlock}>
+                    <Text className={styles.costLabel}>Total Cost</Text>
+                    <Text className={styles.costValue}>${booking.totalCost}</Text>
                   </div>
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-2">
+              <CardFooter className={styles.cardContent}>
+                <div className={styles.metaBadges}>
                   {booking.entrySurveyCompleted && (
-                    <Badge variant="outline" className="gap-1.5">
-                      <ClipboardText size={14} />
+                    <Badge appearance="outline" icon={<ClipboardTaskRegular fontSize={14} />}>
                       Entry Survey Complete
                     </Badge>
                   )}
                   {booking.exitSurveyCompleted && (
-                    <Badge variant="outline" className="gap-1.5">
-                      <Receipt size={14} />
+                    <Badge appearance="outline" icon={<ReceiptRegular fontSize={14} />}>
                       Exit Survey Complete
                     </Badge>
                   )}
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className={styles.actions}>
                   {booking.status === 'active' && (
                     <>
                       <Button
-                        variant="outline"
-                        size="sm"
+                        appearance="outline"
                         onClick={() => handleTeamManagement(booking)}
-                        className="gap-1.5"
+                        icon={<PeopleRegular />}
                       >
-                        <Users size={16} />
                         Manage Team
                       </Button>
                       {!booking.exitSurveyCompleted && (
                         <Button
-                          variant="outline"
-                          size="sm"
+                          appearance="outline"
                           onClick={() => handleExitSurvey(booking)}
-                          className="gap-1.5"
+                          icon={<ClipboardTaskRegular />}
                         >
-                          <ClipboardText size={16} />
                           Complete Exit Survey
                         </Button>
                       )}
@@ -136,16 +227,14 @@ export default function MyBookings() {
                   )}
                   {booking.exitSurveyCompleted && (
                     <Button
-                      variant="outline"
-                      size="sm"
-                      className="gap-1.5"
+                      appearance="outline"
+                      icon={<ReceiptRegular />}
                     >
-                      <Receipt size={16} />
                       View Receipt
                     </Button>
                   )}
                 </div>
-              </CardContent>
+              </CardFooter>
             </Card>
           )
         })}
