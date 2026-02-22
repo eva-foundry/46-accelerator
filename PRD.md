@@ -3,8 +3,8 @@
 ## Implementation Status (February 2026)
 
 - Active UI stack is Fluent UI React v9 with TypeScript + Vite.
-- Spark-specific integration has been removed from runtime and persistence layers.
-- Tailwind/shadcn scaffold artifacts were removed from the active app surface.
+- Legacy runtime and persistence integration has been removed from the app.
+- Legacy CSS scaffold artifacts were removed from the active app surface.
 - Data persistence currently uses browser localStorage via a shared hook.
 - Validation/completion feedback currently uses lightweight browser alerts.
 
@@ -119,37 +119,24 @@ Key animations:
 ## Component Selection
 
 - **Components**:
-  - **Calendar**: Custom component built on `react-day-picker` for availability visualization with color-coded booking states
-  - **Card**: Workspace listings and booking summaries with hover states
-  - **Dialog**: Entry/exit surveys, booking confirmation, role assignment modals
-  - **Form**: All survey inputs and booking forms with required-field validation
-  - **Table**: Administrative views for booking history and cost tracking
-  - **Tabs**: Switch between workspace types, booking views, team management
-  - **Badge**: Role indicators, workspace features, booking status
-  - **Select/Dropdown**: Workspace type selection, role assignment, date ranges
-  - **Progress**: Survey completion indicator
-  - **Alert**: Booking confirmations, conflict warnings, survey reminders
-  - **Avatar**: Team member display in role management
-  - **Separator**: Visual grouping in data-dense views
+  - **FluentProvider**: App-wide Fluent theme provider in shell
+  - **Card / Badge / Button**: Workspace listings, booking summaries, and status/actions
+  - **Dialog / Field / Input / Textarea / Checkbox / RadioGroup / Select**: Booking, survey, and team-management workflows
+  - **Table / ProgressBar**: Admin utilization and booking metrics display
+  - **Avatar / Text / Title3**: Team roster and content hierarchy in Fluent style
 
 - **Customizations**:
-  - Custom availability calendar with multi-select for recurring bookings
-  - Booking timeline component showing reservation lifecycle
-  - Cost calculator widget with real-time pricing updates
-  - Survey stepper with validation gates
-  - Team roster component with drag-and-drop role assignment
+  - LocalStorage state hook (`src/hooks/use-local-storage-state.ts`) for bookings/surveys/team state
+  - Multi-step booking and survey dialogs with validation gates
+  - Utilization and completion calculations in admin dashboard cards/tables
 
 - **States**:
-  - Buttons: Distinct states for booking actions (available/booked/waitlist)
-  - Inputs: Clear focus states with validation feedback inline
-  - Calendar cells: Available (primary), Booked (muted), Your Booking (accent), Conflict (destructive)
-  - Cards: Default, Hover (subtle lift + shadow), Active booking (border highlight)
+  - Buttons: Primary/secondary/outline variants for booking and admin actions
+  - Inputs: Required-field checks with immediate user feedback
+  - Cards: Status and metric grouping for bookings and admin analytics
 
 - **Icon Selection**:
-  - Calendar (schedule), Buildings (workspaces), Users (team), Lock (roles)
-  - ClipboardText (surveys), Receipt (cost recovery), ChartBar (usage metrics)
-  - CheckCircle (confirmed), Clock (pending), XCircle (conflicts)
-  - CaretRight (navigation), Plus (add booking), Pencil (edit)
+  - Fluent icons for calendar, workspace, surveys, admin metrics, and team management actions
 
 - **Spacing**:
   - Page padding: `p-6` on mobile, `p-8` on desktop
@@ -159,8 +146,5 @@ Key animations:
 
 - **Mobile**:
   - Stack workspace cards vertically with full-width layout
-  - Calendar switches to week view on mobile
-  - Booking forms become full-screen dialogs
-  - Tabs convert to accordion on narrow screens
-  - Table data reformats to card layout with key metrics highlighted
-  - Bottom navigation for primary actions (Book, My Bookings, Team)
+  - Booking/survey/team management dialogs remain usable on narrow screens
+  - Table views maintain horizontal scroll behavior for small viewports

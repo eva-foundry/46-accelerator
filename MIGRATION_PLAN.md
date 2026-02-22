@@ -1,15 +1,14 @@
 # Fluent UI Migration Status
 
 ## Overview
-Migration from shadcn/ui + Tailwind-heavy component wrappers to Microsoft Fluent UI React v9 is complete for the active application surface.
+Migration from the legacy UI scaffold to Microsoft Fluent UI React v9 is complete for the active application surface.
 
 ## Final Status
 
 - ✅ All active screens use Fluent UI components and Fluent styling primitives.
 - ✅ Legacy `src/components/ui/*` module set removed.
-- ✅ Spark KV usage removed (`@github/spark/hooks`, `useKV`).
-- ✅ Spark runtime/plugin imports removed from app bootstrap and Vite config.
-- ✅ Sonner/toaster integration removed from active app shell and dialogs.
+- ✅ Legacy runtime/plugin imports removed from app bootstrap and Vite config.
+- ✅ Legacy toast integration removed from active app shell and dialogs.
 - ✅ Persistence now uses localStorage via `src/hooks/use-local-storage-state.ts`.
 
 ## Screens Verified as Fluent UI
@@ -30,4 +29,4 @@ Migration from shadcn/ui + Tailwind-heavy component wrappers to Microsoft Fluent
 ## Notes
 
 - Current lightweight user feedback uses `window.alert` for form validation/completion.
-- If richer UX is needed later, add Fluent-native inline alert/message components rather than reintroducing Sonner.
+- If richer UX is needed later, add Fluent-native inline alert/message components.

@@ -5,8 +5,8 @@ React + Fluent UI application for booking and administering AI workspaces.
 ## Current Status
 
 - Fluent UI migration complete across active screens
-- Spark-specific runtime/hooks removed (`@github/spark/*`, `useKV`)
-- Sonner toast dependency removed; validation feedback uses `window.alert`
+- Legacy platform runtime/hooks removed; persistence uses localStorage
+- Toast dependency removed; validation feedback uses `window.alert`
 - Legacy `src/components/ui/*` modules removed from repository
 - App persistence now uses browser localStorage (`src/hooks/use-local-storage-state.ts`)
 
