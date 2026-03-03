@@ -1,0 +1,172 @@
+# PLAN.md — EVA Accelerator (46-accelerator)
+
+**Project**: 46-accelerator — EVA Domain Assistant Booking Portal
+**Phase 1**: Fluent UI Migration — COMPLETE 2026-02-23
+**Phase 2**: EVA Spark + Brain v2 Integration — COMPLETE 2026-02-24
+**Phase 3**: Governance + Quality + Booking Screens EVA-UI — active
+
+---
+
+## Feature: Fluent UI Migration [ID=F46-01]
+
+Replace legacy shadcn/radix scaffold with Fluent UI React v9 across all active screens.
+
+### Story: Migrate App shell and navigation [ID=F46-01-001]
+
+Remove external toaster. Wire `FluentProvider + webLightTheme`. Replace nav buttons with Fluent `Button`.
+Accept: `npm run build` exits 0, no legacy UI imports in `App.tsx`.
+
+### Story: Migrate BookingDialog to Fluent UI [ID=F46-01-002]
+
+Migrate 3-step wizard: dialog, progress indicator, inputs, checkboxes, and actions.
+Accept: All Fluent primitives; no radix/shadcn imports.
+
+### Story: Migrate ExitSurveyDialog to Fluent UI [ID=F46-01-003]
+
+Migrate dialog, fields, radio groups, and layout.
+
+### Story: Migrate TeamManagementDialog to Fluent UI [ID=F46-01-004]
+
+Migrate member form, role select, list row rendering, and badges.
+
+### Story: Migrate MyBookings to Fluent UI [ID=F46-01-005]
+
+Migrate cards, status badges, empty-state, and action buttons.
+
+### Story: Migrate AdminDashboard to Fluent UI [ID=F46-01-006]
+
+Migrate stat cards, utilization progress bars, and bookings table.
+
+### Story: Wire localStorage persistence hook [ID=F46-01-007]
+
+Implement `src/hooks/use-local-storage-state.ts` shared hook.
+Replace all in-component state with localStorage-backed state for: bookings, entry-surveys, exit-surveys, team-members.
+
+---
+
+## Feature: EVA Spark Design System Integration [ID=F46-02]
+
+Replace raw `FluentProvider + webLightTheme` with the EVA Spark design system
+from `@eva/gc-design-system` and `@eva/ui` (sourced from `../31-eva-faces/shared/`).
+
+### Story: Wire @eva/gc-design-system and @eva/ui dependencies [ID=F46-02-001]
+
+Add `file:../31-eva-faces/shared/gc-design-system` and `file:../31-eva-faces/shared/eva-ui` to package.json.
+Add Vite aliases for `@eva/*` pointing to `../31-eva-faces/shared/*/src`.
+Add tsconfig.json path mappings.
+Accept: `npm run build` exits 0 with both packages resolved.
+
+### Story: Replace FluentProvider with GCThemeProvider in App.tsx [ID=F46-02-002]
+
+Remove `import { FluentProvider, webLightTheme }`. Wrap app in `<GCThemeProvider variant="light">`.
+Accept: App renders; Fluent tokens still resolve via GCThemeProvider.
+
+### Story: Replace raw Button with EvaButton in App.tsx navigation [ID=F46-02-003]
+
+All 8 navigation tab buttons use `EvaButton` from `@eva/ui`.
+Accept: Nav renders; `variant` prop used instead of `appearance`.
+
+---
+
+## Feature: EVA Brain v2 AI Assistant [ID=F46-03]
+
+Wire the EVA Brain v2 FastAPI backend (port 8001) as the AI Assistant chat panel.
+
+### Story: Implement brain-client.ts typed API client [ID=F46-03-001]
+
+Create `src/lib/brain-client.ts`:
+- `chatUngrounded(query, history?, actorOid?)` — POST /v1/chat/ungrounded
+- `chatGrounded(query, history?, indexes?, actorOid?)` — POST /v1/chat
+- `pingBrain()` — GET /v1/health → boolean
+- All calls include 4 mandatory headers: `X-Actor-OID`, `X-Correlation-ID`, `X-Caller-App: accelerator`, `X-Environment`
+- `BRAIN_BASE = import.meta.env.VITE_BRAIN_BASE_URL ?? '/api/brain'`
+
+Accept: TypeScript compiles; `pingBrain()` resolves true when Brain v2 is running.
+
+### Story: Add /api/brain Vite proxy [ID=F46-03-002]
+
+Add `server.proxy['/api/brain']` in `vite.config.ts` → `http://localhost:8001` with path rewrite stripping `/api/brain`.
+Accept: `npm run dev` proxies `/api/brain/v1/health` to Brain v2 in dev.
+
+### Story: Build AIAssistant chat panel component [ID=F46-03-003]
+
+Create `src/components/AIAssistant.tsx`:
+- `pingBrain()` on mount → `brainOnline` state → `EvaBadge` (Brain Online / Brain Offline)
+- Offline: warning banner + disabled `Textarea`
+- Conversation history state passed on every `chatUngrounded()` call
+- 5 starter suggestion chips when conversation is empty
+- Error messages rendered in distinct error bubble
+- Uses `EvaButton`, `EvaSpinner`, `EvaBadge` from `@eva/ui`
+
+Accept: Panel renders in `assistant` view; badge reflects brain health; messages round-trip.
+
+### Story: Add AI Assistant view to App.tsx [ID=F46-03-004]
+
+Add `View = 'assistant'` type. Add `SparkleRegular` nav tab. Render `<AIAssistant />` on view switch.
+Accept: AI Assistant tab visible; click navigates to panel.
+
+---
+
+## Feature: Governance and Evidence [ID=F46-04]
+
+Bring project 46 to EVA Foundation governance standard: PLAN/STATUS/ACCEPTANCE, EVA-STORY tags, veritas MTI ≥ 70.
+
+### Story: Create PLAN.md, STATUS.md, ACCEPTANCE.md [ID=F46-04-001]
+
+- [ ] PLAN.md — all phases, features, stories with IDs
+- [ ] STATUS.md — session snapshots, open blockers
+- [ ] ACCEPTANCE.md — DoD checklist per story
+
+### Story: Add EVA-STORY tags to all source files [ID=F46-04-002]
+
+Add `// EVA-STORY: F46-XX-XXX` and `// EVA-FEATURE: F46-XX` header tags to:
+- `src/App.tsx`, `src/main.tsx`
+- `src/components/*.tsx` (all 7 screens)
+- `src/lib/brain-client.ts`, `src/lib/types.ts`, `src/lib/constants.ts`
+- `src/hooks/use-local-storage-state.ts`
+
+Accept: `node C:\AICOE\eva-foundation\48-eva-veritas\src\cli.js audit --repo .` MTI ≥ 70.
+
+### Story: Update 37-data-model project record [ID=F46-04-003]
+
+- [ ] PUT `http://localhost:8010/model/projects/46-accelerator` with phase=Phase 2 COMPLETE, status=active
+- [ ] Verify row_version incremented
+- [ ] POST /model/admin/commit → PASS
+
+---
+
+## Feature: Booking Screens @eva/ui Migration [ID=F46-05]
+
+Migrate the 5 booking screens from raw `@fluentui/react-components` to `@eva/ui` wrappers.
+
+### Story: Migrate WorkspaceCatalog to @eva/ui [ID=F46-05-001]
+
+Replace `Button` with `EvaButton`, `Card` with `EvaCard` (if available), badges with `EvaBadge`.
+
+### Story: Migrate BookingDialog to @eva/ui [ID=F46-05-002]
+
+Replace dialog trigger/content with `EvaDialog`. All action buttons → `EvaButton`.
+
+### Story: Migrate MyBookings to @eva/ui [ID=F46-05-003]
+
+Replace card action buttons with `EvaButton`. Status badges → `EvaBadge`.
+
+### Story: Migrate ExitSurveyDialog to @eva/ui [ID=F46-05-004]
+
+Replace action buttons with `EvaButton`.
+
+### Story: Migrate TeamManagementDialog to @eva/ui [ID=F46-05-005]
+
+Replace action buttons with `EvaButton`. Role badges → `EvaBadge`.
+
+---
+
+## Feature: GitHub Actions CI [ID=F46-06]
+
+### Story: Add CI workflow [ID=F46-06-001]
+
+- [ ] Create `.github/workflows/ci.yml`
+- [ ] Triggers: push/PR to `main` filtering `eva-foundation/46-accelerator/**`
+- [ ] Steps: checkout, node 20, `npm ci --legacy-peer-deps`, `npm run build`, `npm run lint`
+
+---

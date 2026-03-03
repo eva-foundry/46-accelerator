@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "schema": "eva.reconciliation.v2",
+    "generated_at": "2026-02-25T06:38:05.144Z",
+    "repo": "C:\\AICOE\\eva-foundation\\46-accelerator",
+    "discovery_path": "C:\\AICOE\\eva-foundation\\46-accelerator\\.eva\\discovery.json"
+  },
+  "coverage": {
+    "stories_total": 23,
+    "stories_with_artifacts": 23,
+    "stories_with_evidence": 23,
+    "consistency_score": 0
+  },
+  "features": [
+    {
+      "id": "F46-01",
+      "title": "Fluent UI Migration",
+      "story_count": 7,
+      "stories_with_artifacts": 7,
+      "stories_with_evidence": 7,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "F46-02",
+      "title": "EVA Spark Design System Integration",
+      "story_count": 3,
+      "stories_with_artifacts": 3,
+      "stories_with_evidence": 3,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "F46-03",
+      "title": "EVA Brain v2 AI Assistant",
+      "story_count": 4,
+      "stories_with_artifacts": 4,
+      "stories_with_evidence": 4,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "F46-04",
+      "title": "Governance and Evidence",
+      "story_count": 3,
+      "stories_with_artifacts": 3,
+      "stories_with_evidence": 3,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "F46-05",
+      "title": "Booking Screens @eva/ui Migration",
+      "story_count": 5,
+      "stories_with_artifacts": 5,
+      "stories_with_evidence": 5,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "F46-06",
+      "title": "GitHub Actions CI",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    }
+  ],
+  "gaps": []
+}

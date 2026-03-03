@@ -1,0 +1,2439 @@
+{
+  "meta": {
+    "schema": "eva.discovery.v2",
+    "generated_at": "2026-02-25T06:38:05.128Z",
+    "repo": "C:\\AICOE\\eva-foundation\\46-accelerator"
+  },
+  "project": null,
+  "planned": {
+    "epic": {
+      "title": "EVA Domain Assistant — Accelerator Portal",
+      "source": "README.md"
+    },
+    "features": [
+      {
+        "id": "F46-01",
+        "title": "Fluent UI Migration",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-02",
+        "title": "EVA Spark Design System Integration",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-03",
+        "title": "EVA Brain v2 AI Assistant",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04",
+        "title": "Governance and Evidence",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05",
+        "title": "Booking Screens @eva/ui Migration",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-06",
+        "title": "GitHub Actions CI",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "stories": [
+      {
+        "id": "F46-01-001",
+        "title": "Migrate App shell and navigation",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-002",
+        "title": "Migrate BookingDialog to Fluent UI",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-003",
+        "title": "Migrate ExitSurveyDialog to Fluent UI",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-004",
+        "title": "Migrate TeamManagementDialog to Fluent UI",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-005",
+        "title": "Migrate MyBookings to Fluent UI",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-006",
+        "title": "Migrate AdminDashboard to Fluent UI",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-01-007",
+        "title": "Wire localStorage persistence hook",
+        "feature_id": "F46-01",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-02-001",
+        "title": "Wire @eva/gc-design-system and @eva/ui dependencies",
+        "feature_id": "F46-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-02-002",
+        "title": "Replace FluentProvider with GCThemeProvider in App.tsx",
+        "feature_id": "F46-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-02-003",
+        "title": "Replace raw Button with EvaButton in App.tsx navigation",
+        "feature_id": "F46-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-03-001",
+        "title": "Implement brain-client.ts typed API client",
+        "feature_id": "F46-03",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-03-002",
+        "title": "Add /api/brain Vite proxy",
+        "feature_id": "F46-03",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-03-003",
+        "title": "Build AIAssistant chat panel component",
+        "feature_id": "F46-03",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-03-004",
+        "title": "Add AI Assistant view to App.tsx",
+        "feature_id": "F46-03",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-001",
+        "title": "Create PLAN.md, STATUS.md, ACCEPTANCE.md",
+        "feature_id": "F46-04",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-002",
+        "title": "Add EVA-STORY tags to all source files",
+        "feature_id": "F46-04",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-003",
+        "title": "Update 37-data-model project record",
+        "feature_id": "F46-04",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05-001",
+        "title": "Migrate WorkspaceCatalog to @eva/ui",
+        "feature_id": "F46-05",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05-002",
+        "title": "Migrate BookingDialog to @eva/ui",
+        "feature_id": "F46-05",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05-003",
+        "title": "Migrate MyBookings to @eva/ui",
+        "feature_id": "F46-05",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05-004",
+        "title": "Migrate ExitSurveyDialog to @eva/ui",
+        "feature_id": "F46-05",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-05-005",
+        "title": "Migrate TeamManagementDialog to @eva/ui",
+        "feature_id": "F46-05",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-06-001",
+        "title": "Add CI workflow",
+        "feature_id": "F46-06",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "F46-04-001-T01",
+        "title": "PLAN.md ? all phases, features, stories with IDs",
+        "story_id": "F46-04-001",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-001-T02",
+        "title": "STATUS.md ? session snapshots, open blockers",
+        "story_id": "F46-04-001",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-001-T03",
+        "title": "ACCEPTANCE.md ? DoD checklist per story",
+        "story_id": "F46-04-001",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-003-T01",
+        "title": "PUT `http://localhost:8010/model/projects/46-accelerator` with phase=Phase 2 COMPLETE, status=active",
+        "story_id": "F46-04-003",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-003-T02",
+        "title": "Verify row_version incremented",
+        "story_id": "F46-04-003",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-04-003-T03",
+        "title": "POST /model/admin/commit ? PASS",
+        "story_id": "F46-04-003",
+        "feature_id": "F46-04",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-06-001-T01",
+        "title": "Create `.github/workflows/ci.yml`",
+        "story_id": "F46-06-001",
+        "feature_id": "F46-06",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-06-001-T02",
+        "title": "Triggers: push/PR to `main` filtering `eva-foundation/46-accelerator/**`",
+        "story_id": "F46-06-001",
+        "feature_id": "F46-06",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F46-06-001-T03",
+        "title": "Steps: checkout, node 20, `npm ci --legacy-peer-deps`, `npm run build`, `npm run lint`",
+        "story_id": "F46-06-001",
+        "feature_id": "F46-06",
+        "done": false,
+        "source": "veritas-plan.json"
+      }
+    ],
+    "acceptance": [
+      {
+        "story_id": "F46-01-001",
+        "checked": true,
+        "text": "`App.tsx` uses `FluentProvider` or `GCThemeProvider` as root theme wrapper",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-001",
+        "checked": true,
+        "text": "No legacy radix/shadcn imports in `App.tsx`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-001",
+        "checked": true,
+        "text": "Nav renders without errors",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-001",
+        "checked": true,
+        "text": "`npm run build` exits 0",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-002",
+        "checked": true,
+        "text": "`BookingDialog.tsx` uses only Fluent UI primitives",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-002",
+        "checked": true,
+        "text": "3-step wizard renders: workspace selection → entry survey → confirm",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-002",
+        "checked": true,
+        "text": "No `@radix-ui/*` or `components/ui/*` imports",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-003",
+        "checked": true,
+        "text": "`ExitSurveyDialog.tsx` uses only Fluent UI dialog, fields, radio groups",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-003",
+        "checked": true,
+        "text": "No legacy UI imports",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-004",
+        "checked": true,
+        "text": "`TeamManagementDialog.tsx` uses Fluent UI member form, role select, badges",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-004",
+        "checked": true,
+        "text": "Reader / Contributor / Admin roles selectable",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-005",
+        "checked": true,
+        "text": "`MyBookings.tsx` renders booking cards with status badges using Fluent UI",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-005",
+        "checked": true,
+        "text": "Empty-state renders when no bookings",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-006",
+        "checked": true,
+        "text": "`AdminDashboard.tsx` renders stat cards, utilization bars, bookings table",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-006",
+        "checked": true,
+        "text": "No legacy UI imports",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-007",
+        "checked": true,
+        "text": "`src/hooks/use-local-storage-state.ts` exports a typed hook",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-007",
+        "checked": true,
+        "text": "`bookings`, `entry-surveys`, `exit-surveys`, `team-members` all persist across page reload",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-01-007",
+        "checked": true,
+        "text": "No in-component raw `localStorage.getItem/setItem` calls",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-001",
+        "checked": true,
+        "text": "`package.json` has `\"@eva/gc-design-system\": \"file:../31-eva-faces/shared/gc-design-system\"`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-001",
+        "checked": true,
+        "text": "`package.json` has `\"@eva/ui\": \"file:../31-eva-faces/shared/eva-ui\"`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-001",
+        "checked": true,
+        "text": "`vite.config.ts` aliases resolve `@eva/*` to `../31-eva-faces/shared/*/src`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-001",
+        "checked": true,
+        "text": "`tsconfig.json` has `@eva/*` path mappings",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-001",
+        "checked": true,
+        "text": "`npm run build` exits 0",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-002",
+        "checked": true,
+        "text": "`App.tsx` imports `GCThemeProvider` from `@eva/gc-design-system`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-002",
+        "checked": true,
+        "text": "No `import { FluentProvider, webLightTheme }` in `App.tsx`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-002",
+        "checked": true,
+        "text": "App renders with correct token values",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-003",
+        "checked": true,
+        "text": "All nav tab buttons in `App.tsx` use `EvaButton` from `@eva/ui`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-003",
+        "checked": true,
+        "text": "`variant` prop used (not `appearance`)",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-02-003",
+        "checked": true,
+        "text": "No raw `Button` import from `@fluentui/react-components` in `App.tsx`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-001",
+        "checked": true,
+        "text": "`src/lib/brain-client.ts` exists",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-001",
+        "checked": true,
+        "text": "Exports `chatUngrounded`, `chatGrounded`, `pingBrain`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-001",
+        "checked": true,
+        "text": "All requests include `X-Actor-OID`, `X-Correlation-ID`, `X-Caller-App: accelerator`, `X-Environment`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-001",
+        "checked": true,
+        "text": "`BRAIN_BASE` reads from `VITE_BRAIN_BASE_URL` env var with fallback to `/api/brain`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-001",
+        "checked": true,
+        "text": "TypeScript compiles without errors",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-002",
+        "checked": true,
+        "text": "`vite.config.ts` has `server.proxy['/api/brain']` → `http://localhost:8001`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-002",
+        "checked": true,
+        "text": "Path rewrite strips `/api/brain` prefix before forwarding",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-002",
+        "checked": true,
+        "text": "`npm run dev` auto-proxies brain calls in development",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "`src/components/AIAssistant.tsx` exists",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "`pingBrain()` called on mount; `brainOnline` state drives `EvaBadge`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "Offline state shows warning banner and disables `Textarea`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "Conversation history array passed on every `chatUngrounded()` call",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "5 starter suggestion chips shown on empty conversation",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "Error responses render in visually distinct error bubble",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-003",
+        "checked": true,
+        "text": "Uses `EvaButton`, `EvaSpinner`, `EvaBadge` from `@eva/ui`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-004",
+        "checked": true,
+        "text": "`type View` includes `'assistant'`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-004",
+        "checked": true,
+        "text": "`SparkleRegular` icon used for AI Assistant nav tab",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-03-004",
+        "checked": true,
+        "text": "`{currentView === 'assistant' && <AIAssistant />}` rendered in main content area",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-001",
+        "checked": true,
+        "text": "`PLAN.md` created with phases, features F46-01 to F46-06, all stories with IDs",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-001",
+        "checked": true,
+        "text": "`STATUS.md` created with session snapshots and open items table",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-001",
+        "checked": true,
+        "text": "`ACCEPTANCE.md` created with DoD checklist per story",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-002",
+        "checked": false,
+        "text": "`src/App.tsx` has `// EVA-STORY: F46-02-002` header",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-002",
+        "checked": false,
+        "text": "`src/main.tsx` has `// EVA-STORY: F46-02-001` header",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-002",
+        "checked": false,
+        "text": "All 7 screen components have `// EVA-STORY: F46-XX-XXX` + `// EVA-FEATURE: F46-XX`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-002",
+        "checked": false,
+        "text": "`src/lib/brain-client.ts` has `// EVA-STORY: F46-03-001`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-002",
+        "checked": false,
+        "text": "`node src/cli.js audit --repo .` MTI ≥ 70 (run from `48-eva-veritas`)",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-003",
+        "checked": false,
+        "text": "`GET /model/projects/46-accelerator` → `row_version ≥ 2`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-003",
+        "checked": false,
+        "text": "`phase` = `Phase 2 — Spark + Brain Connected — COMPLETE`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-003",
+        "checked": false,
+        "text": "`status` = `active`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-003",
+        "checked": false,
+        "text": "`modified_by` = `agent:copilot`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-04-003",
+        "checked": false,
+        "text": "`POST /model/admin/commit` → `status: PASS`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-001",
+        "checked": false,
+        "text": "All action buttons in `WorkspaceCatalog.tsx` use `EvaButton`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-001",
+        "checked": false,
+        "text": "Status indicators use `EvaBadge` where available",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-001",
+        "checked": false,
+        "text": "No raw `Button` import from `@fluentui/react-components` in this file",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-002",
+        "checked": false,
+        "text": "Dialog trigger and actions use `EvaButton`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-002",
+        "checked": false,
+        "text": "No raw `Button` import in `BookingDialog.tsx`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-003",
+        "checked": false,
+        "text": "Booking card action buttons use `EvaButton`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-003",
+        "checked": false,
+        "text": "Status badges use `EvaBadge`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-004",
+        "checked": false,
+        "text": "Dialog action buttons use `EvaButton`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-005",
+        "checked": false,
+        "text": "Action buttons use `EvaButton`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-05-005",
+        "checked": false,
+        "text": "Role badges use `EvaBadge`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "`.github/workflows/ci.yml` exists",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "Triggers on push and PR to `main`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "Filter path: `eva-foundation/46-accelerator/**`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "Steps: checkout, Node 20, `npm ci --legacy-peer-deps`, `npm run build`, `npm run lint`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "Workflow passes on clean repo",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "`npm run build` exits 0 — no TypeScript errors, no Vite build errors",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "`npm run lint` exits 0 — no ESLint errors",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "EVA Veritas MTI ≥ 70 — `node C:\\AICOE\\eva-foundation\\48-eva-veritas\\src\\cli.js audit --repo .`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "37-data-model `POST /model/admin/commit` → `PASS, violations: 0`",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "No encoding violations in committed files (ASCII-only for machine-readable outputs)",
+        "source": "ACCEPTANCE.md"
+      },
+      {
+        "story_id": "F46-06-001",
+        "checked": false,
+        "text": "`STATUS.md` updated with session summary before closing",
+        "source": "ACCEPTANCE.md"
+      }
+    ],
+    "declared_status": {}
+  },
+  "actual": {
+    "artifacts": [
+      {
+        "path": ".gitignore",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".spark-initial-sha",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "ACCEPTANCE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "components.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "LICENSE",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "MIGRATION_PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "package-lock.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "PLAN.md.bak",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "PRD.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "SECURITY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "spark.meta.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "STATUS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "tailwind.config.js",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "theme.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "vite.config.ts",
+        "type": "code",
+        "story_tags": [
+          "F46-02-001",
+          "F46-03-002"
+        ]
+      },
+      {
+        "path": ".github/copilot-instructions.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/dependabot.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "evidence/F46-01-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-001"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-002.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-002"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-003.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-003"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-004.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-004"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-005.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-005"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-006.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-006"
+        ]
+      },
+      {
+        "path": "evidence/F46-01-007.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-01-007"
+        ]
+      },
+      {
+        "path": "evidence/F46-02-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-02-001"
+        ]
+      },
+      {
+        "path": "evidence/F46-02-002.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-02-002"
+        ]
+      },
+      {
+        "path": "evidence/F46-02-003.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-02-003"
+        ]
+      },
+      {
+        "path": "evidence/F46-03-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-03-001"
+        ]
+      },
+      {
+        "path": "evidence/F46-03-002.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-03-002"
+        ]
+      },
+      {
+        "path": "evidence/F46-03-003.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-03-003"
+        ]
+      },
+      {
+        "path": "evidence/F46-03-004.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-03-004"
+        ]
+      },
+      {
+        "path": "evidence/F46-04-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-04-001"
+        ]
+      },
+      {
+        "path": "evidence/F46-04-002.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-04-002"
+        ]
+      },
+      {
+        "path": "evidence/F46-04-003.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-04-003"
+        ]
+      },
+      {
+        "path": "evidence/F46-05-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-05-001"
+        ]
+      },
+      {
+        "path": "evidence/F46-05-002.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-05-002"
+        ]
+      },
+      {
+        "path": "evidence/F46-05-003.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-05-003"
+        ]
+      },
+      {
+        "path": "evidence/F46-05-004.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-05-004"
+        ]
+      },
+      {
+        "path": "evidence/F46-05-005.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-05-005"
+        ]
+      },
+      {
+        "path": "evidence/F46-06-001.py",
+        "type": "evidence",
+        "story_tags": [
+          "F46-06-001"
+        ]
+      },
+      {
+        "path": "src/App.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-001",
+          "F46-02-002",
+          "F46-02-003",
+          "F46-03-004"
+        ]
+      },
+      {
+        "path": "src/ErrorFallback.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/index.css",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "src/main.css",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "src/main.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-001",
+          "F46-01-002",
+          "F46-01-003",
+          "F46-01-004",
+          "F46-01-005",
+          "F46-01-006",
+          "F46-01-007",
+          "F46-02-002",
+          "F46-02-003",
+          "F46-03-002",
+          "F46-03-003",
+          "F46-03-004",
+          "F46-04-001",
+          "F46-04-002",
+          "F46-04-003",
+          "F46-05-001",
+          "F46-05-002",
+          "F46-05-003",
+          "F46-05-004",
+          "F46-05-005",
+          "F46-06-001",
+          "F46-02-001"
+        ]
+      },
+      {
+        "path": "src/vite-end.d.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/00-skill-index.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/AdminDashboard.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-006"
+        ]
+      },
+      {
+        "path": "src/components/AIAssistant.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-03-003"
+        ]
+      },
+      {
+        "path": "src/components/BookingDialog.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-002",
+          "F46-05-002"
+        ]
+      },
+      {
+        "path": "src/components/ExitSurveyDialog.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-003",
+          "F46-05-004"
+        ]
+      },
+      {
+        "path": "src/components/MyBookings.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-005",
+          "F46-05-003"
+        ]
+      },
+      {
+        "path": "src/components/TeamManagementDialog.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-01-004",
+          "F46-05-005"
+        ]
+      },
+      {
+        "path": "src/components/WorkspaceCatalog.tsx",
+        "type": "code",
+        "story_tags": [
+          "F46-05-001"
+        ]
+      },
+      {
+        "path": "src/hooks/use-local-storage-state.ts",
+        "type": "code",
+        "story_tags": [
+          "F46-01-007"
+        ]
+      },
+      {
+        "path": "src/hooks/use-mobile.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/lib/brain-client.ts",
+        "type": "code",
+        "story_tags": [
+          "F46-03-001"
+        ]
+      },
+      {
+        "path": "src/lib/constants.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/lib/types.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/styles/theme.css",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/accordion.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/alert-dialog.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/alert.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/aspect-ratio.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/avatar.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/badge.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/breadcrumb.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/button.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/card.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/carousel.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/chart.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/checkbox.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/collapsible.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/command.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/context-menu.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/dialog.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/drawer.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/dropdown-menu.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/form.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/hover-card.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/input-otp.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/input.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/label.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/menubar.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/navigation-menu.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/pagination.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/popover.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/progress.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/radio-group.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/resizable.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/scroll-area.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/select.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/separator.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/sheet.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/sidebar.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/skeleton.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/slider.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/sonner.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/switch.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/table.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/tabs.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/textarea.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/toggle-group.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/toggle.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "src/components/ui/tooltip.tsx",
+        "type": "code",
+        "story_tags": []
+      }
+    ],
+    "story_artifact_map": {
+      "F46-02-001": {
+        "artifacts": [
+          {
+            "path": "vite.config.ts",
+            "type": "code",
+            "story_tags": [
+              "F46-02-001",
+              "F46-03-002"
+            ]
+          },
+          {
+            "path": "evidence/F46-02-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-03-002": {
+        "artifacts": [
+          {
+            "path": "vite.config.ts",
+            "type": "code",
+            "story_tags": [
+              "F46-02-001",
+              "F46-03-002"
+            ]
+          },
+          {
+            "path": "evidence/F46-03-002.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-03-002"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-01-001": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-001"
+            ]
+          },
+          {
+            "path": "src/App.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-01-002": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-002.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-002"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/BookingDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-002",
+              "F46-05-002"
+            ]
+          }
+        ]
+      },
+      "F46-01-003": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-003.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-003"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/ExitSurveyDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-003",
+              "F46-05-004"
+            ]
+          }
+        ]
+      },
+      "F46-01-004": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-004.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/TeamManagementDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-004",
+              "F46-05-005"
+            ]
+          }
+        ]
+      },
+      "F46-01-005": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-005.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-005"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/MyBookings.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-005",
+              "F46-05-003"
+            ]
+          }
+        ]
+      },
+      "F46-01-006": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-006.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-006"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/AdminDashboard.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-006"
+            ]
+          }
+        ]
+      },
+      "F46-01-007": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-01-007.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-01-007"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/hooks/use-local-storage-state.ts",
+            "type": "code",
+            "story_tags": [
+              "F46-01-007"
+            ]
+          }
+        ]
+      },
+      "F46-02-002": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-02-002.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-02-002"
+            ]
+          },
+          {
+            "path": "src/App.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-02-003": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-02-003.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-02-003"
+            ]
+          },
+          {
+            "path": "src/App.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-03-001": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-03-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-03-001"
+            ]
+          },
+          {
+            "path": "src/lib/brain-client.ts",
+            "type": "code",
+            "story_tags": [
+              "F46-03-001"
+            ]
+          }
+        ]
+      },
+      "F46-03-003": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-03-003.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-03-003"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/AIAssistant.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-03-003"
+            ]
+          }
+        ]
+      },
+      "F46-03-004": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-03-004.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-03-004"
+            ]
+          },
+          {
+            "path": "src/App.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-04-001": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-04-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-04-001"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-04-002": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-04-002.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-04-002"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-04-003": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-04-003.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-04-003"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      },
+      "F46-05-001": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-05-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-05-001"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/WorkspaceCatalog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-05-001"
+            ]
+          }
+        ]
+      },
+      "F46-05-002": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-05-002.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-05-002"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/BookingDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-002",
+              "F46-05-002"
+            ]
+          }
+        ]
+      },
+      "F46-05-003": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-05-003.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-05-003"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/MyBookings.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-005",
+              "F46-05-003"
+            ]
+          }
+        ]
+      },
+      "F46-05-004": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-05-004.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-05-004"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/ExitSurveyDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-003",
+              "F46-05-004"
+            ]
+          }
+        ]
+      },
+      "F46-05-005": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-05-005.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-05-005"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          },
+          {
+            "path": "src/components/TeamManagementDialog.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-004",
+              "F46-05-005"
+            ]
+          }
+        ]
+      },
+      "F46-06-001": {
+        "artifacts": [
+          {
+            "path": "evidence/F46-06-001.py",
+            "type": "evidence",
+            "story_tags": [
+              "F46-06-001"
+            ]
+          },
+          {
+            "path": "src/main.tsx",
+            "type": "code",
+            "story_tags": [
+              "F46-01-001",
+              "F46-01-002",
+              "F46-01-003",
+              "F46-01-004",
+              "F46-01-005",
+              "F46-01-006",
+              "F46-01-007",
+              "F46-02-002",
+              "F46-02-003",
+              "F46-03-002",
+              "F46-03-003",
+              "F46-03-004",
+              "F46-04-001",
+              "F46-04-002",
+              "F46-04-003",
+              "F46-05-001",
+              "F46-05-002",
+              "F46-05-003",
+              "F46-05-004",
+              "F46-05-005",
+              "F46-06-001",
+              "F46-02-001"
+            ]
+          }
+        ]
+      }
+    },
+    "commit_evidence_map": {}
+  }
+}

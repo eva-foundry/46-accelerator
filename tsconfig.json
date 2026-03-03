@@ -21,13 +21,17 @@
     /* Linting */
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "@eva/ui": ["../31-eva-faces/shared/eva-ui/src/index"],
+      "@eva/gc-design-system": ["../31-eva-faces/shared/gc-design-system/src/index"],
+      "@eva/gc-design-system/tokens": ["../31-eva-faces/shared/gc-design-system/src/tokens/index"]
     },
   },
   "include": [
+    "../31-eva-faces/shared/eva-ui/src",
+    "../31-eva-faces/shared/gc-design-system/src",
     "src"
   ]
 }

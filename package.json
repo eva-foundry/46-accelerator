@@ -12,6 +12,8 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@eva/gc-design-system": "file:../31-eva-faces/shared/gc-design-system",
+        "@eva/ui": "file:../31-eva-faces/shared/eva-ui",
         "@fluentui/react-components": "^9.73.0",
         "@fluentui/react-icons": "^2.0.319",
         "react": "^19.0.0",

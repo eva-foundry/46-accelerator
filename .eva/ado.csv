@@ -1,0 +1,8 @@
+Work Item Type,Title,Parent,Description,Acceptance Criteria,Tags,Evidence Sources
+Epic,EVA Domain Assistant — Accelerator Portal,,,,eva,
+Feature,F46-01 Fluent UI Migration,EVA Domain Assistant — Accelerator Portal,,,eva;feature,
+Feature,F46-02 EVA Spark Design System Integration,EVA Domain Assistant — Accelerator Portal,,,eva;feature,
+Feature,F46-03 EVA Brain v2 AI Assistant,EVA Domain Assistant — Accelerator Portal,,,eva;feature,
+Feature,F46-04 Governance and Evidence,EVA Domain Assistant — Accelerator Portal,,,eva;feature,
+Feature,F46-05 Booking Screens @eva/ui Migration,EVA Domain Assistant — Accelerator Portal,,,eva;feature,
+Feature,F46-06 GitHub Actions CI,EVA Domain Assistant — Accelerator Portal,,,eva;feature,

@@ -1,8 +1,10 @@
+// EVA-STORY: F46-01-001
+// EVA-STORY: F46-02-002
+// EVA-STORY: F46-02-003
+// EVA-STORY: F46-03-004
+// EVA-FEATURE: F46-01 F46-02 F46-03
 import { useState } from 'react'
 import {
-  FluentProvider,
-  webLightTheme,
-  Button,
   tokens,
   makeStyles,
   shorthands,
@@ -11,12 +13,16 @@ import {
   CalendarRegular,
   BuildingRegular,
   ChartMultipleRegular,
+  SparkleRegular,
 } from '@fluentui/react-icons'
+import { GCThemeProvider } from '@eva/gc-design-system'
+import { EvaButton } from '@eva/ui'
 import WorkspaceCatalog from '@/components/WorkspaceCatalog'
 import MyBookings from '@/components/MyBookings'
 import AdminDashboard from '@/components/AdminDashboard'
+import AIAssistant from '@/components/AIAssistant'
 
-type View = 'catalog' | 'bookings' | 'admin'
+type View = 'catalog' | 'bookings' | 'admin' | 'assistant'
 
 const useStyles = makeStyles({
   root: {
@@ -104,7 +110,7 @@ function App() {
   const styles = useStyles()
 
   return (
-    <FluentProvider theme={webLightTheme}>
+    <GCThemeProvider variant="light">
       <div className={styles.root}>
         <header className={styles.header}>
           <div className={styles.headerContainer}>
@@ -120,61 +126,77 @@ function App() {
               </div>
 
               <nav className={styles.nav}>
-                <Button
-                  appearance={currentView === 'catalog' ? 'primary' : 'subtle'}
+                <EvaButton
+                  variant={currentView === 'catalog' ? 'primary' : 'subtle'}
                   onClick={() => setCurrentView('catalog')}
                   icon={<BuildingRegular />}
                 >
                   Browse Workspaces
-                </Button>
-                <Button
-                  appearance={currentView === 'bookings' ? 'primary' : 'subtle'}
+                </EvaButton>
+                <EvaButton
+                  variant={currentView === 'bookings' ? 'primary' : 'subtle'}
                   onClick={() => setCurrentView('bookings')}
                   icon={<CalendarRegular />}
                 >
                   My Bookings
-                </Button>
+                </EvaButton>
+                <EvaButton
+                  variant={currentView === 'assistant' ? 'primary' : 'subtle'}
+                  onClick={() => setCurrentView('assistant')}
+                  icon={<SparkleRegular />}
+                >
+                  AI Assistant
+                </EvaButton>
                 {isAdmin && (
-                  <Button
-                    appearance={currentView === 'admin' ? 'primary' : 'subtle'}
+                  <EvaButton
+                    variant={currentView === 'admin' ? 'primary' : 'subtle'}
                     onClick={() => setCurrentView('admin')}
                     icon={<ChartMultipleRegular />}
                   >
                     Admin
-                  </Button>
+                  </EvaButton>
                 )}
               </nav>
             </div>
 
             <nav className={styles.mobileNav}>
-              <Button
-                appearance={currentView === 'catalog' ? 'primary' : 'outline'}
+              <EvaButton
+                variant={currentView === 'catalog' ? 'primary' : 'outline'}
                 onClick={() => setCurrentView('catalog')}
                 icon={<BuildingRegular />}
                 size="small"
                 className={styles.mobileNavButton}
               >
                 Workspaces
-              </Button>
-              <Button
-                appearance={currentView === 'bookings' ? 'primary' : 'outline'}
+              </EvaButton>
+              <EvaButton
+                variant={currentView === 'bookings' ? 'primary' : 'outline'}
                 onClick={() => setCurrentView('bookings')}
                 icon={<CalendarRegular />}
                 size="small"
                 className={styles.mobileNavButton}
               >
                 Bookings
-              </Button>
+              </EvaButton>
+              <EvaButton
+                variant={currentView === 'assistant' ? 'primary' : 'outline'}
+                onClick={() => setCurrentView('assistant')}
+                icon={<SparkleRegular />}
+                size="small"
+                className={styles.mobileNavButton}
+              >
+                AI
+              </EvaButton>
               {isAdmin && (
-                <Button
-                  appearance={currentView === 'admin' ? 'primary' : 'outline'}
+                <EvaButton
+                  variant={currentView === 'admin' ? 'primary' : 'outline'}
                   onClick={() => setCurrentView('admin')}
                   icon={<ChartMultipleRegular />}
                   size="small"
                   className={styles.mobileNavButton}
                 >
                   Admin
-                </Button>
+                </EvaButton>
               )}
             </nav>
           </div>
@@ -184,9 +206,10 @@ function App() {
           {currentView === 'catalog' && <WorkspaceCatalog />}
           {currentView === 'bookings' && <MyBookings />}
           {currentView === 'admin' && <AdminDashboard />}
+          {currentView === 'assistant' && <AIAssistant />}
         </main>
       </div>
-    </FluentProvider>
+    </GCThemeProvider>
   )
 }
 

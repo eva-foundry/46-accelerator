@@ -1,3 +1,5 @@
+// EVA-STORY: F46-01-007
+// EVA-FEATURE: F46-01
 import { useEffect, useState } from 'react'
 
 export function useLocalStorageState<T>(key: string, initialValue: T) {

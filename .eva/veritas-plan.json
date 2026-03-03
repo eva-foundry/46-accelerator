@@ -1,0 +1,289 @@
+{
+  "schema": "eva.veritas-plan.v1",
+  "generated_at": "2026-02-25T06:38:04.604Z",
+  "generated_from": [
+    "PLAN.md"
+  ],
+  "format_detected": "veritas",
+  "prefix": "F46",
+  "features": [
+    {
+      "id": "F46-01",
+      "title": "Fluent UI Migration",
+      "source_heading": "## Feature: Fluent UI Migration [ID=F46-01]",
+      "stories": [
+        {
+          "id": "F46-01-001",
+          "title": "Migrate App shell and navigation",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-002",
+          "title": "Migrate BookingDialog to Fluent UI",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-003",
+          "title": "Migrate ExitSurveyDialog to Fluent UI",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-004",
+          "title": "Migrate TeamManagementDialog to Fluent UI",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-005",
+          "title": "Migrate MyBookings to Fluent UI",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-006",
+          "title": "Migrate AdminDashboard to Fluent UI",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-01-007",
+          "title": "Wire localStorage persistence hook",
+          "feature_id": "F46-01",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F46-02",
+      "title": "EVA Spark Design System Integration",
+      "source_heading": "## Feature: EVA Spark Design System Integration [ID=F46-02]",
+      "stories": [
+        {
+          "id": "F46-02-001",
+          "title": "Wire @eva/gc-design-system and @eva/ui dependencies",
+          "feature_id": "F46-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-02-002",
+          "title": "Replace FluentProvider with GCThemeProvider in App.tsx",
+          "feature_id": "F46-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-02-003",
+          "title": "Replace raw Button with EvaButton in App.tsx navigation",
+          "feature_id": "F46-02",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F46-03",
+      "title": "EVA Brain v2 AI Assistant",
+      "source_heading": "## Feature: EVA Brain v2 AI Assistant [ID=F46-03]",
+      "stories": [
+        {
+          "id": "F46-03-001",
+          "title": "Implement brain-client.ts typed API client",
+          "feature_id": "F46-03",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-03-002",
+          "title": "Add /api/brain Vite proxy",
+          "feature_id": "F46-03",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-03-003",
+          "title": "Build AIAssistant chat panel component",
+          "feature_id": "F46-03",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-03-004",
+          "title": "Add AI Assistant view to App.tsx",
+          "feature_id": "F46-03",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F46-04",
+      "title": "Governance and Evidence",
+      "source_heading": "## Feature: Governance and Evidence [ID=F46-04]",
+      "stories": [
+        {
+          "id": "F46-04-001",
+          "title": "Create PLAN.md, STATUS.md, ACCEPTANCE.md",
+          "feature_id": "F46-04",
+          "source": "heading",
+          "tasks": [
+            {
+              "id": "F46-04-001-T01",
+              "title": "PLAN.md ? all phases, features, stories with IDs",
+              "story_id": "F46-04-001",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-04-001-T02",
+              "title": "STATUS.md ? session snapshots, open blockers",
+              "story_id": "F46-04-001",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-04-001-T03",
+              "title": "ACCEPTANCE.md ? DoD checklist per story",
+              "story_id": "F46-04-001",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            }
+          ]
+        },
+        {
+          "id": "F46-04-002",
+          "title": "Add EVA-STORY tags to all source files",
+          "feature_id": "F46-04",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-04-003",
+          "title": "Update 37-data-model project record",
+          "feature_id": "F46-04",
+          "source": "heading",
+          "tasks": [
+            {
+              "id": "F46-04-003-T01",
+              "title": "PUT `http://localhost:8010/model/projects/46-accelerator` with phase=Phase 2 COMPLETE, status=active",
+              "story_id": "F46-04-003",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-04-003-T02",
+              "title": "Verify row_version incremented",
+              "story_id": "F46-04-003",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-04-003-T03",
+              "title": "POST /model/admin/commit ? PASS",
+              "story_id": "F46-04-003",
+              "feature_id": "F46-04",
+              "done": false,
+              "source": "checklist"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F46-05",
+      "title": "Booking Screens @eva/ui Migration",
+      "source_heading": "## Feature: Booking Screens @eva/ui Migration [ID=F46-05]",
+      "stories": [
+        {
+          "id": "F46-05-001",
+          "title": "Migrate WorkspaceCatalog to @eva/ui",
+          "feature_id": "F46-05",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-05-002",
+          "title": "Migrate BookingDialog to @eva/ui",
+          "feature_id": "F46-05",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-05-003",
+          "title": "Migrate MyBookings to @eva/ui",
+          "feature_id": "F46-05",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-05-004",
+          "title": "Migrate ExitSurveyDialog to @eva/ui",
+          "feature_id": "F46-05",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F46-05-005",
+          "title": "Migrate TeamManagementDialog to @eva/ui",
+          "feature_id": "F46-05",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F46-06",
+      "title": "GitHub Actions CI",
+      "source_heading": "## Feature: GitHub Actions CI [ID=F46-06]",
+      "stories": [
+        {
+          "id": "F46-06-001",
+          "title": "Add CI workflow",
+          "feature_id": "F46-06",
+          "source": "heading",
+          "tasks": [
+            {
+              "id": "F46-06-001-T01",
+              "title": "Create `.github/workflows/ci.yml`",
+              "story_id": "F46-06-001",
+              "feature_id": "F46-06",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-06-001-T02",
+              "title": "Triggers: push/PR to `main` filtering `eva-foundation/46-accelerator/**`",
+              "story_id": "F46-06-001",
+              "feature_id": "F46-06",
+              "done": false,
+              "source": "checklist"
+            },
+            {
+              "id": "F46-06-001-T03",
+              "title": "Steps: checkout, node 20, `npm ci --legacy-peer-deps`, `npm run build`, `npm run lint`",
+              "story_id": "F46-06-001",
+              "feature_id": "F46-06",
+              "done": false,
+              "source": "checklist"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
