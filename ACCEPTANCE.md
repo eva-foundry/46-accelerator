@@ -153,7 +153,7 @@ Definition of Done for all user stories. Phase 1 and Phase 2 criteria are verifi
 
 - [ ] `npm run build` exits 0 — no TypeScript errors, no Vite build errors
 - [ ] `npm run lint` exits 0 — no ESLint errors
-- [ ] EVA Veritas MTI ≥ 70 — `node C:\AICOE\eva-foundation\48-eva-veritas\src\cli.js audit --repo .`
+- [ ] EVA Veritas MTI ≥ 70 — `node C:\eva-foundry\eva-foundation\48-eva-veritas\src\cli.js audit --repo .`
 - [ ] 37-data-model `POST /model/admin/commit` → `PASS, violations: 0`
 - [ ] No encoding violations in committed files (ASCII-only for machine-readable outputs)
 - [ ] `STATUS.md` updated with session summary before closing

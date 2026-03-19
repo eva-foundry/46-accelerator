@@ -1,0 +1,23 @@
+{
+  "schema": "eva.export-to-model.evidence.v1",
+  "timestamp": "2026-03-08T00:47:31.537Z",
+  "project_id": "46-accelerator",
+  "actor": "agent:veritas",
+  "action": "export-to-model",
+  "layers_exported": [
+    "wbs",
+    "evidence",
+    "decisions",
+    "risks"
+  ],
+  "record_counts": {
+    "wbs_count": 30,
+    "evidence_count": 23,
+    "decisions_count": 0,
+    "risks_count": 0,
+    "mti_score": null
+  },
+  "output_path": "C:\\eva-foundry\\eva-foundry\\46-accelerator\\.eva\\model-export.json",
+  "discovery_path": "C:\\eva-foundry\\eva-foundry\\46-accelerator\\.eva\\discovery.json",
+  "reconciliation_path": "C:\\eva-foundry\\eva-foundry\\46-accelerator\\.eva\\reconciliation.json"
+}

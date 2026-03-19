@@ -125,7 +125,7 @@ Add `// EVA-STORY: F46-XX-XXX` and `// EVA-FEATURE: F46-XX` header tags to:
 - `src/lib/brain-client.ts`, `src/lib/types.ts`, `src/lib/constants.ts`
 - `src/hooks/use-local-storage-state.ts`
 
-Accept: `node C:\AICOE\eva-foundation\48-eva-veritas\src\cli.js audit --repo .` MTI ≥ 70.
+Accept: `node C:\eva-foundry\eva-foundation\48-eva-veritas\src\cli.js audit --repo .` MTI ≥ 70.
 
 ### Story: Update 37-data-model project record [ID=F46-04-003]
 

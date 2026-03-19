@@ -1,0 +1,1110 @@
+{
+  "meta": {
+    "schema": "eva.export-to-model.v1",
+    "generated_at": "2026-03-08T00:47:31.512Z",
+    "project_id": "46-accelerator",
+    "source_files": [
+      "STATUS.md",
+      "PLAN.md"
+    ],
+    "discovery_path": "C:\\eva-foundry\\eva-foundry\\46-accelerator\\.eva\\discovery.json",
+    "reconciliation_path": "C:\\eva-foundry\\eva-foundry\\46-accelerator\\.eva\\reconciliation.json",
+    "layers_selected": [
+      "wbs",
+      "evidence",
+      "decisions",
+      "risks"
+    ]
+  },
+  "wbs": [
+    {
+      "id": "WBS-46accelerator",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": null,
+      "label": "Project: 46-accelerator",
+      "level": "epic",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 69,
+      "points_done": 0,
+      "stories_total": 23,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-F01",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "Fluent UI Migration",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 21,
+      "points_done": 0,
+      "stories_total": 7,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S001",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate App shell and navigation",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`App.tsx` uses `FluentProvider` or `GCThemeProvider` as root theme wrapper\nNo legacy radix/shadcn imports in `App.tsx`\nNav renders without errors\n`npm run build` exits 0",
+      "original_story_id": "F46-01-001"
+    },
+    {
+      "id": "WBS-S002",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate BookingDialog to Fluent UI",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`BookingDialog.tsx` uses only Fluent UI primitives\n3-step wizard renders: workspace selection → entry survey → confirm\nNo `@radix-ui/*` or `components/ui/*` imports",
+      "original_story_id": "F46-01-002"
+    },
+    {
+      "id": "WBS-S003",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate ExitSurveyDialog to Fluent UI",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`ExitSurveyDialog.tsx` uses only Fluent UI dialog, fields, radio groups\nNo legacy UI imports",
+      "original_story_id": "F46-01-003"
+    },
+    {
+      "id": "WBS-S004",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate TeamManagementDialog to Fluent UI",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`TeamManagementDialog.tsx` uses Fluent UI member form, role select, badges\nReader / Contributor / Admin roles selectable",
+      "original_story_id": "F46-01-004"
+    },
+    {
+      "id": "WBS-S005",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate MyBookings to Fluent UI",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`MyBookings.tsx` renders booking cards with status badges using Fluent UI\nEmpty-state renders when no bookings",
+      "original_story_id": "F46-01-005"
+    },
+    {
+      "id": "WBS-S006",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Migrate AdminDashboard to Fluent UI",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`AdminDashboard.tsx` renders stat cards, utilization bars, bookings table\nNo legacy UI imports",
+      "original_story_id": "F46-01-006"
+    },
+    {
+      "id": "WBS-S007",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F01",
+      "label": "Wire localStorage persistence hook",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`src/hooks/use-local-storage-state.ts` exports a typed hook\n`bookings`, `entry-surveys`, `exit-surveys`, `team-members` all persist across page reload\nNo in-component raw `localStorage.getItem/setItem` calls",
+      "original_story_id": "F46-01-007"
+    },
+    {
+      "id": "WBS-F02",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "EVA Spark Design System Integration",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 9,
+      "points_done": 0,
+      "stories_total": 3,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S008",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F02",
+      "label": "Wire @eva/gc-design-system and @eva/ui dependencies",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`package.json` has `\"@eva/gc-design-system\": \"file:../31-eva-faces/shared/gc-design-system\"`\n`package.json` has `\"@eva/ui\": \"file:../31-eva-faces/shared/eva-ui\"`\n`vite.config.ts` aliases resolve `@eva/*` to `../31-eva-faces/shared/*/src`\n`tsconfig.json` has `@eva/*` path mappings\n`npm run build` exits 0",
+      "original_story_id": "F46-02-001"
+    },
+    {
+      "id": "WBS-S009",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F02",
+      "label": "Replace FluentProvider with GCThemeProvider in App.tsx",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`App.tsx` imports `GCThemeProvider` from `@eva/gc-design-system`\nNo `import { FluentProvider, webLightTheme }` in `App.tsx`\nApp renders with correct token values",
+      "original_story_id": "F46-02-002"
+    },
+    {
+      "id": "WBS-S010",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F02",
+      "label": "Replace raw Button with EvaButton in App.tsx navigation",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "All nav tab buttons in `App.tsx` use `EvaButton` from `@eva/ui`\n`variant` prop used (not `appearance`)\nNo raw `Button` import from `@fluentui/react-components` in `App.tsx`",
+      "original_story_id": "F46-02-003"
+    },
+    {
+      "id": "WBS-F03",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "EVA Brain v2 AI Assistant",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 12,
+      "points_done": 0,
+      "stories_total": 4,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S011",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F03",
+      "label": "Implement brain-client.ts typed API client",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`src/lib/brain-client.ts` exists\nExports `chatUngrounded`, `chatGrounded`, `pingBrain`\nAll requests include `X-Actor-OID`, `X-Correlation-ID`, `X-Caller-App: accelerator`, `X-Environment`\n`BRAIN_BASE` reads from `VITE_BRAIN_BASE_URL` env var with fallback to `/api/brain`\nTypeScript compiles without errors",
+      "original_story_id": "F46-03-001"
+    },
+    {
+      "id": "WBS-S012",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F03",
+      "label": "Add /api/brain Vite proxy",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`vite.config.ts` has `server.proxy['/api/brain']` → `http://localhost:8001`\nPath rewrite strips `/api/brain` prefix before forwarding\n`npm run dev` auto-proxies brain calls in development",
+      "original_story_id": "F46-03-002"
+    },
+    {
+      "id": "WBS-S013",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F03",
+      "label": "Build AIAssistant chat panel component",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`src/components/AIAssistant.tsx` exists\n`pingBrain()` called on mount; `brainOnline` state drives `EvaBadge`\nOffline state shows warning banner and disables `Textarea`\nConversation history array passed on every `chatUngrounded()` call\n5 starter suggestion chips shown on empty conversation\nError responses render in visually distinct error bubble\nUses `EvaButton`, `EvaSpinner`, `EvaBadge` from `@eva/ui`",
+      "original_story_id": "F46-03-003"
+    },
+    {
+      "id": "WBS-S014",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F03",
+      "label": "Add AI Assistant view to App.tsx",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`type View` includes `'assistant'`\n`SparkleRegular` icon used for AI Assistant nav tab\n`{currentView === 'assistant' && <AIAssistant />}` rendered in main content area",
+      "original_story_id": "F46-03-004"
+    },
+    {
+      "id": "WBS-F04",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "Governance and Evidence",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 9,
+      "points_done": 0,
+      "stories_total": 3,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S015",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F04",
+      "label": "Create PLAN.md, STATUS.md, ACCEPTANCE.md",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`PLAN.md` created with phases, features F46-01 to F46-06, all stories with IDs\n`STATUS.md` created with session snapshots and open items table\n`ACCEPTANCE.md` created with DoD checklist per story",
+      "original_story_id": "F46-04-001"
+    },
+    {
+      "id": "WBS-S016",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F04",
+      "label": "Add EVA-STORY tags to all source files",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`src/App.tsx` has `// EVA-STORY: F46-02-002` header\n`src/main.tsx` has `// EVA-STORY: F46-02-001` header\nAll 7 screen components have `// EVA-STORY: F46-XX-XXX` + `// EVA-FEATURE: F46-XX`\n`src/lib/brain-client.ts` has `// EVA-STORY: F46-03-001`\n`node src/cli.js audit --repo .` MTI ≥ 70 (run from `48-eva-veritas`)",
+      "original_story_id": "F46-04-002"
+    },
+    {
+      "id": "WBS-S017",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F04",
+      "label": "Update 37-data-model project record",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`GET /model/projects/46-accelerator` → `row_version ≥ 2`\n`phase` = `Phase 2 — Spark + Brain Connected — COMPLETE`\n`status` = `active`\n`modified_by` = `agent:copilot`\n`POST /model/admin/commit` → `status: PASS`",
+      "original_story_id": "F46-04-003"
+    },
+    {
+      "id": "WBS-F05",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "Booking Screens @eva/ui Migration",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 15,
+      "points_done": 0,
+      "stories_total": 5,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S018",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F05",
+      "label": "Migrate WorkspaceCatalog to @eva/ui",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "All action buttons in `WorkspaceCatalog.tsx` use `EvaButton`\nStatus indicators use `EvaBadge` where available\nNo raw `Button` import from `@fluentui/react-components` in this file",
+      "original_story_id": "F46-05-001"
+    },
+    {
+      "id": "WBS-S019",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F05",
+      "label": "Migrate BookingDialog to @eva/ui",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "Dialog trigger and actions use `EvaButton`\nNo raw `Button` import in `BookingDialog.tsx`",
+      "original_story_id": "F46-05-002"
+    },
+    {
+      "id": "WBS-S020",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F05",
+      "label": "Migrate MyBookings to @eva/ui",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "Booking card action buttons use `EvaButton`\nStatus badges use `EvaBadge`",
+      "original_story_id": "F46-05-003"
+    },
+    {
+      "id": "WBS-S021",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F05",
+      "label": "Migrate ExitSurveyDialog to @eva/ui",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "Dialog action buttons use `EvaButton`",
+      "original_story_id": "F46-05-004"
+    },
+    {
+      "id": "WBS-S022",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F05",
+      "label": "Migrate TeamManagementDialog to @eva/ui",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "Action buttons use `EvaButton`\nRole badges use `EvaBadge`",
+      "original_story_id": "F46-05-005"
+    },
+    {
+      "id": "WBS-F06",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-46accelerator",
+      "label": "GitHub Actions CI",
+      "level": "feature",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "stories_total": 1,
+      "stories_done": 0
+    },
+    {
+      "id": "WBS-S023",
+      "project_id": "46-accelerator",
+      "parent_wbs_id": "WBS-F06",
+      "label": "Add CI workflow",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": "`.github/workflows/ci.yml` exists\nTriggers on push and PR to `main`\nFilter path: `eva-foundation/46-accelerator/**`\nSteps: checkout, Node 20, `npm ci --legacy-peer-deps`, `npm run build`, `npm run lint`\nWorkflow passes on clean repo\n`npm run build` exits 0 — no TypeScript errors, no Vite build errors\n`npm run lint` exits 0 — no ESLint errors\nEVA Veritas MTI ≥ 70 — `node C:\\eva-foundry\\eva-foundation\\48-eva-veritas\\src\\cli.js audit --repo .`\n37-data-model `POST /model/admin/commit` → `PASS, violations: 0`\nNo encoding violations in committed files (ASCII-only for machine-readable outputs)\n`STATUS.md` updated with session summary before closing",
+      "original_story_id": "F46-06-001"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-46accelerator-D3-001",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-02-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.515Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "vite.config.ts",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "evidence/F46-02-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-002",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-03-002",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.515Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "vite.config.ts",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "evidence/F46-03-002.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-003",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.515Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/App.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-004",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-002",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.515Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-002.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/BookingDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-005",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-003",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-003.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/ExitSurveyDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-006",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-004",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-004.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/TeamManagementDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-007",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-005",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-005.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/MyBookings.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-008",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-006",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-006.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/AdminDashboard.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-009",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-01-007",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-01-007.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/hooks/use-local-storage-state.ts",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-010",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-02-002",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-02-002.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/App.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-011",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-02-003",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-02-003.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/App.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-012",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-03-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-03-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/lib/brain-client.ts",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-013",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-03-003",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-03-003.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/AIAssistant.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-014",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-03-004",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-03-004.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/App.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-015",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-04-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-04-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-016",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-04-002",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-04-002.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-017",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-04-003",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-04-003.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-018",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-05-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-05-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/WorkspaceCatalog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-019",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-05-002",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-05-002.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/BookingDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-020",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-05-003",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-05-003.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/MyBookings.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-021",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-05-004",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-05-004.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/ExitSurveyDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-022",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-05-005",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-05-005.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        },
+        {
+          "path": "src/components/TeamManagementDialog.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    },
+    {
+      "id": "EVD-46accelerator-D3-023",
+      "project_id": "46-accelerator",
+      "phase": "D3",
+      "story_id": "F46-06-001",
+      "status": "passed",
+      "test_count": 1,
+      "test_passed": 1,
+      "coverage": null,
+      "timestamp": "2026-03-08T00:47:31.516Z",
+      "actor": "agent:veritas",
+      "source": "veritas-export",
+      "evidence_artifacts": [
+        {
+          "path": "evidence/F46-06-001.py",
+          "type": "evidence",
+          "is_test": false
+        },
+        {
+          "path": "src/main.tsx",
+          "type": "code",
+          "is_test": false
+        }
+      ],
+      "commit_refs": []
+    }
+  ],
+  "decisions": [],
+  "risks": [],
+  "summary": {
+    "wbs_count": 30,
+    "evidence_count": 23,
+    "decisions_count": 0,
+    "risks_count": 0,
+    "mti_score": null
+  }
+}
